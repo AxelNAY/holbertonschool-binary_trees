@@ -8,14 +8,12 @@
 
 size_t binary_tree_leaves(const binary_tree_t *tree)
 {
-	size_t count = 0;
+	size_t count = 1;
 
 	if (tree == NULL)
 		return (0);
 
 	if (tree->left != NULL)
-		count++;
-	if (tree->right != NULL)
 		count++;
 
 	return (count);
