@@ -6,17 +6,23 @@
  * @tree: a pointer to the root node of the tree to traverse.
  * Return: the balance.
  */
-
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	size_t left, right;
+	int left_height = 0;
+	int right_height = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	left = binary_tree_height(tree->left);
-	right = binary_tree_height(tree->right);
-
-	return (int)(left - right);
+	if (tree->left)
+	{
+		left_height = binary_tree_height(tree->left);
+		left_height++;
+	}
+	if (tree->right)
+	{
+		right_height = binary_tree_height(tree->right);
+		right_height++;
+	}
+	return (left_height - right_height);
 }
-
